@@ -1,34 +1,34 @@
-import React, { memo, useCallback, useEffect } from 'react';
-import { useGlobals, type API } from 'storybook/manager-api';
-import { IconButton } from 'storybook/internal/components';
-import { ADDON_ID, KEY, TOOL_ID } from '../constants';
-import { LightningIcon } from '@storybook/icons';
+import React, { memo } from 'react';
+import { useStorybookState, type API } from 'storybook/manager-api';
+import { IconButton, TooltipNote, WithTooltip } from 'storybook/internal/components';
+import { InfoIcon } from '@storybook/icons';
+import { TOOL_ID } from '../constants';
 
-export const Tool = memo(function MyAddonSelector({ api }: { api: API }) {
-  const [globals, updateGlobals, storyGlobals] = useGlobals();
+export const Tool = memo(function DescriptionTool({ api }: { api: API }) {
+  const { storyId, viewMode } = useStorybookState();
 
-  const isLocked = KEY in storyGlobals;
-  const isActive = !!globals[KEY];
+  if (viewMode !== 'story' || !storyId) {
+    return null;
+  }
 
-  const toggle = useCallback(() => {
-    updateGlobals({
-      [KEY]: !isActive,
-    });
-  }, [isActive]);
+  const storyData = api.getData(storyId);
+  if (!storyData || storyData.type !== 'story') {
+    return null;
+  }
 
-  useEffect(() => {
-    api.setAddonShortcut(ADDON_ID, {
-      label: 'Toggle Measure [O]',
-      defaultShortcut: ['O'],
-      actionName: 'outline',
-      showInMenu: false,
-      action: toggle,
-    });
-  }, [toggle, api]);
+  const storyDesc = storyData.parameters?.docs?.description?.story;
+  const componentDesc = storyData.parameters?.docs?.description?.component;
+  const description = storyDesc || componentDesc;
+
+  if (!description) {
+    return null;
+  }
 
   return (
-    <IconButton key={TOOL_ID} active={isActive} disabled={isLocked} title="Enable my addon" onClick={toggle}>
-      <LightningIcon />
-    </IconButton>
+    <WithTooltip placement="bottom" trigger="click" tooltip={<TooltipNote note={description} />}>
+      <IconButton key={TOOL_ID} title="Show Story Description">
+        <InfoIcon />
+      </IconButton>
+    </WithTooltip>
   );
 });
