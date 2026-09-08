@@ -1,6 +1,19 @@
 import React from 'react';
 import { useStorybookState, type API } from 'storybook/manager-api';
 import { AddonPanel } from 'storybook/internal/components';
+import { styled } from 'storybook/theming';
+
+const PanelContent = styled.div(({ theme }) => ({
+  padding: '16px',
+  fontSize: '14px',
+  lineHeight: '1.6',
+  color: theme.color.defaultText,
+}));
+
+const EmptyState = styled.div(({ theme }) => ({
+  color: theme.textMutedColor,
+  fontStyle: 'italic',
+}));
 
 interface PanelProps {
   active: boolean;
@@ -19,19 +32,14 @@ export const Panel = ({ active, api }: PanelProps) => {
     return null;
   }
 
-  const storyDesc = storyData.parameters?.docs?.description?.story;
-  const componentDesc = storyData.parameters?.docs?.description?.component;
-  const description = storyDesc || componentDesc;
+  const description =
+    storyData.parameters?.docs?.description?.story || storyData.parameters?.docs?.description?.component;
 
   return (
     <AddonPanel active={active}>
-      <div style={{ padding: '16px', fontSize: '14px', lineHeight: '1.5' }}>
-        {description ? (
-          <div>{description}</div>
-        ) : (
-          <div style={{ color: '#666', fontStyle: 'italic' }}>No description provided for this story.</div>
-        )}
-      </div>
+      <PanelContent>
+        {description ? <div>{description}</div> : <EmptyState>No description provided for this story.</EmptyState>}
+      </PanelContent>
     </AddonPanel>
   );
 };
