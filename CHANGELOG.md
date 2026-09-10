@@ -1,3 +1,16 @@
+# v0.0.15 (Thu Sep 10 2026)
+
+#### ⚠️ Pushed to `main`
+
+- Merge remote-tracking branch 'origin/main' ([@Vazaril](https://github.com/Vazaril))
+- refactor: updated readme and package.json ([@Vazaril](https://github.com/Vazaril))
+
+#### Authors: 1
+
+- [@Vazaril](https://github.com/Vazaril)
+
+---
+
 # v0.0.11 (Thu Sep 10 2026)
 
 #### ⚠️ Pushed to `main`
