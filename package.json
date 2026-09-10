@@ -7,7 +7,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/Vazaril/storybook-addon-story-description"
+    "url": "git+https://github.com/Vazaril/storybook-addon-story-description.git"
   },
   "license": "MIT",
   "author": "Vazaril <200440876+Vazaril@users.noreply.github.com>",
