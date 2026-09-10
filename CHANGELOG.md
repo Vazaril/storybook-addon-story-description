@@ -2,6 +2,18 @@
 
 #### ⚠️ Pushed to `main`
 
+- fix: update versioning ([@Vazaril](https://github.com/Vazaril))
+
+#### Authors: 1
+
+- [@Vazaril](https://github.com/Vazaril)
+
+---
+
+# v0.0.11 (Thu Sep 10 2026)
+
+#### ⚠️ Pushed to `main`
+
 - fix: package.json ([@Vazaril](https://github.com/Vazaril))
 - Enhance README with demo image and context ([@Vazaril](https://github.com/Vazaril))
 - refactor: README and Tool, Panel Tests ([@Vazaril](https://github.com/Vazaril))
