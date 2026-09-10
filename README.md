@@ -13,11 +13,6 @@ Install this addon by adding `storybook-addon-story-description` to your depende
 
 ```sh
 npm install -D storybook-addon-story-description
-# or
-yarn add -D storybook-addon-story-description
-# or
-pnpm add -D storybook-addon-story-description
-
 ```
 
 Register the addon within your `.storybook/main.js` (or `.ts`) file:
