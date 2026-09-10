@@ -2,6 +2,7 @@ import React from 'react';
 import { useStorybookState, type API } from 'storybook/manager-api';
 import { AddonPanel } from 'storybook/internal/components';
 import { styled } from 'storybook/theming';
+import { getDescription } from '../utils';
 
 const PanelContent = styled.div(({ theme }) => ({
   padding: '16px',
@@ -31,10 +32,7 @@ export const Panel = ({ active, api }: PanelProps) => {
   if (!storyData || storyData.type !== 'story') {
     return null;
   }
-
-  const description =
-    storyData.parameters?.docs?.description?.story || storyData.parameters?.docs?.description?.component;
-
+  const description = getDescription(storyData as unknown as Parameters<typeof getDescription>[0]);
   return (
     <AddonPanel active={active}>
       <PanelContent>

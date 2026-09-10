@@ -4,6 +4,7 @@ import { ToggleButton, WithTooltip } from 'storybook/internal/components';
 import { InfoIcon } from '@storybook/icons';
 import { TOOL_ID } from '../constants';
 import { styled } from 'storybook/theming';
+import { getDescription } from '../utils';
 
 const PopoverContainer = styled.div(({ theme }) => ({
   padding: '16px',
@@ -33,14 +34,11 @@ export const Tool = memo(function DescriptionTool({ api }: { api: API }) {
   if (!storyData || storyData.type !== 'story') {
     return null;
   }
-
-  const description =
-    storyData.parameters?.docs?.description?.story || storyData.parameters?.docs?.description?.component;
+  const description = getDescription(storyData as unknown as Parameters<typeof getDescription>[0]);
 
   if (!description) {
     return null;
   }
-
   return (
     <WithTooltip
       placement="bottom"
@@ -53,13 +51,7 @@ export const Tool = memo(function DescriptionTool({ api }: { api: API }) {
         </PopoverContainer>
       }
     >
-      <ToggleButton
-        key={TOOL_ID}
-        padding="small"
-        variant="ghost"
-        pressed={isOpen}
-        ariaLabel="View Story Description"
-      >
+      <ToggleButton key={TOOL_ID} padding="small" variant="ghost" pressed={isOpen} ariaLabel="View Story Description">
         <InfoIcon />
       </ToggleButton>
     </WithTooltip>
