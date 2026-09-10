@@ -6,7 +6,6 @@ The Story Description addon brings your documentation out of the Docs page and d
   <img width="578" height="480" alt="Demo" src="https://github.com/user-attachments/assets/d65bde11-3dfc-4b75-94aa-abdfdd723b36" />
 </p>
 
-
 ## Getting Started
 
 Install this addon by adding `storybook-addon-story-description` to your dependencies:
