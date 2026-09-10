@@ -2,6 +2,11 @@
 
 The Story Description addon brings your documentation out of the Docs page and directly into the Canvas UI. It surfaces your component and story descriptions in both a convenient toolbar popover and a persistent addon panel, ensuring developers always have context right where they are interacting with the UI.
 
+<p align="center">
+  <img width="578" height="480" alt="Demo" src="https://github.com/user-attachments/assets/d65bde11-3dfc-4b75-94aa-abdfdd723b36" />
+</p>
+
+
 ## Getting Started
 
 Install this addon by adding `storybook-addon-story-description` to your dependencies:
