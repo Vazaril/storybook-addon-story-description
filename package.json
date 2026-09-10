@@ -1,6 +1,6 @@
 {
   "name": "storybook-addon-story-description",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "A Storybook toolbar addon that displays story and component descriptions directly in the Canvas view via a handy tooltip.",
   "keywords": [
     "storybook-addon"
