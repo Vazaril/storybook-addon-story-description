@@ -1,3 +1,16 @@
+# v0.0.18 (Wed Sep 23 2026)
+
+#### ⚠️ Pushed to `main`
+
+- fix: update pnpm lockfile for Node 22 types ([@Vazaril](https://github.com/Vazaril))
+- feat: migrate to Storybook 11 and Node 22 ([@Vazaril](https://github.com/Vazaril))
+
+#### Authors: 1
+
+- [@Vazaril](https://github.com/Vazaril)
+
+---
+
 # v0.0.17 (Thu Sep 10 2026)
 
 #### ⚠️ Pushed to `main`
